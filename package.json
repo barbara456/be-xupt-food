@@ -1,0 +1,28 @@
+{
+    "name": "be-xupt-food",
+    "version": "1.0.0",
+    "description": "西邮美食后端项目",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/barbara456/be-xupt-food.git"
+    },
+    "author": "GaoJiahui",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/barbara456/be-xupt-food/issues"
+    },
+    "homepage": "https://github.com/barbara456/be-xupt-food#readme",
+    "dependencies": {
+        "ejs": "^3.1.6",
+        "koa": "^2.13.1",
+        "koa-bodyparser": "^4.3.0",
+        "koa-views": "^7.0.1",
+        "koa2-cors": "^2.0.6",
+        "mysql": "^2.18.1"
+    }
+}
