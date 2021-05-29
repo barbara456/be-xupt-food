@@ -26,7 +26,6 @@ app.use(
     })
 );
 
-
 /**
  * route函数：根据URL获取data内容
  * @param  {string} url koa2上下文的url，ctx.url
