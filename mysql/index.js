@@ -47,6 +47,16 @@ class Mysql {
             });
         })
     }
+    queryHardware({ userName, password }) {
+        return new Promise((resolve, reject) => {
+            pool.query(`SELECT * from xupt_food.userInfoList where userName="${userName}" and password="${password}" `, function(error, results, fields) {
+                if (error) {
+                    throw error
+                }
+                resolve(results.length)
+            });
+        })
+    }
 }
 
 module.exports = new Mysql()

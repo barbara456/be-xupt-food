@@ -7,6 +7,7 @@ const mysql = require('./mysql')
 const cors = require('koa2-cors')
 const bodyParser = require('koa-bodyparser');
 const app = new Koa()
+const testHardware = require('./test/list1.json')
 app.use(bodyParser());
 
 app.use(
@@ -42,6 +43,9 @@ async function route(url, ctx) {
             break
         case '/login':
             view = mysql.queryLogin({...ctx.request.body })
+            break
+        case '/hardware':
+            view = testHardware
             break
     }
     let html = view
