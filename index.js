@@ -7,7 +7,8 @@ const mysql = require('./mysql')
 const cors = require('koa2-cors')
 const bodyParser = require('koa-bodyparser');
 const app = new Koa()
-const testHardware = require('./test/list1.json')
+const testHardware1 = require('./test/list1.json')
+const testHardware2 = require('./test/list2.json')
 app.use(bodyParser());
 
 app.use(
@@ -34,9 +35,14 @@ app.use(
  */
 async function route(url, ctx) {
     let view
-    switch (url) {
+    const {id = 1789} = ctx.query;
+    const useUrl = url.split('?')[0]
+    switch (useUrl) {
         case '/food':
             view = mysql.queryfood()
+            break
+        case '/foodDetail':
+            view = mysql.queryfoodDetail(id)
             break
         case '/home':
             view = mysql.queryhome()
@@ -44,8 +50,22 @@ async function route(url, ctx) {
         case '/login':
             view = mysql.queryLogin({...ctx.request.body })
             break
-        case '/hardware':
-            view = testHardware
+        case '/hardware0':
+            view = mysql.queryHardwareNew()
+            break
+        case '/hardware1':
+            view = mysql.queryHardwareNew()
+            break
+
+        // 硬件模块 01 展示 mock数据逻辑：
+        // case '/hardware0':
+        //     view = testHardware1
+        //     break
+        // case '/hardware1':
+        //     view = testHardware2
+        //     break
+        case '/operateComment':
+            view = mysql.queryOperateComment({...ctx.request.body })
             break
     }
     let html = view
